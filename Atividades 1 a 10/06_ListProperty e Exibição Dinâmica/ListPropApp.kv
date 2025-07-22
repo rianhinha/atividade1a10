@@ -1,0 +1,9 @@
+<ListaItensWidget>:
+    orientation: 'vertical'
+    Label:
+        text: ', '.join(root.lista_de_compras)
+    TextInput:
+        id: input_item
+    Button:
+        text: "Adicionar Item"
+        on_release: root.adicionar_item(input_item.text)

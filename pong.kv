@@ -1,0 +1,53 @@
+<PongBall>:
+        size: 30, 30
+    canvas:
+        Color:
+            rgba: 1, 1, 1, 1  # Bola branca
+        Ellipse:  # Mudamos de Rectangle para Ellipse para fazer a bola redonda
+            pos: self.pos
+            size: self.size
+
+<PongPaddle>:
+    size: 20, 120
+    canvas:
+        Color:
+            rgba: self.color  # Cor será definida na instância
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<PongGame>:
+    ball: pong_ball
+    player1: player_left
+    player2: player_right
+    score_label: score_display
+
+    canvas:
+        Color:
+            rgba: 0, 0, 0, 1  # Fundo preto
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    Label:
+        id: score_display
+        font_size: '50sp'
+        center_x: root.center_x
+        top: root.top - 20
+        text: "0 - 0"
+        color: 1, 1, 1, 1  # Texto branco
+
+    PongBall:
+        id: pong_ball
+
+    PongPaddle:
+        id: player_left
+        x: root.x
+        center_y: root.center_y
+        color: 0.2, 0.6, 1, 1  # Azul claro
+
+    PongPaddle:
+        id: player_right
+        x: root.width - self.width
+        center_y: root.center_y
+        color: 1, 0.2, 0.2, 1  # Vermelho claro

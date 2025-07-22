@@ -1,0 +1,11 @@
+<MyContainer>:
+    orientation: 'vertical'
+    TextInput:
+        id: meu_input
+    Label:
+        text: meu_input.text
+    Label:
+        id: aviso_label
+        text: ''
+        on_text: Clock.schedule_once(lambda dt: setattr(self, 'text', ''), 1)
+        on_text: aviso_label.text = 'Você está digitando...'

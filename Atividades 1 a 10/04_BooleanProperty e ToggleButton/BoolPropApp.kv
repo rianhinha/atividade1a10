@@ -1,0 +1,7 @@
+<ToggleStateWidget>:
+    orientation: 'vertical'
+    ToggleButton:
+        text: 'Ativar'
+        on_state: root.on_toggle_state(self, self.state)
+    Label:
+        text: 'Ativo' if root.is_active else 'Inativo'

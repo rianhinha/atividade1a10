@@ -1,0 +1,15 @@
+<PlayerInfo>:
+    orientation: 'vertical'
+    TextInput:
+        text: root.player_name
+        on_text: root.player_name = self.text
+    Label:
+        text: "Score: " + str(root.player_score)
+    Button:
+        text: "Aumentar Score"
+        on_release: root.aumentar_score()
+    ToggleButton:
+        text: "Online/Offline"
+        on_state: root.is_online = (self.state == 'down')
+    Label:
+        text: "Online" if root.is_online else "Offline"
