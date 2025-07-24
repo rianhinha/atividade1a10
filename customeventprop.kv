@@ -1,0 +1,23 @@
+<MyCustomWidget>:
+        orientation: 'vertical'
+    padding: 10
+    spacing: 10
+    
+    Label:
+        id: log_label
+        text: 'Esperando mensagem...'
+    
+    TextInput:
+        id: message_input
+        hint_text: 'Digite uma mensagem'
+        size_hint_y: None
+        height: 40
+    
+    Button:
+        text: 'Atualizar Mensagem'
+        on_press: root.message = message_input.text
+    
+    # Correção na vinculação do evento
+    on_message_changed: 
+        log_label.text = 'Nova mensagem: ' + args[1] if len(args) > 1 else 'Nova mensagem'
+    on_message_changed: log_label.text = 'Nova mensagem: ' + args[1]
